@@ -77,4 +77,14 @@ public class Player : MonoBehaviour
     {
         return lives;
     }
+
+    public void AddToSpeed(float speedToAdd)
+    {
+        speed += speedToAdd;
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
 }

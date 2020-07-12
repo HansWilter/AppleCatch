@@ -1161,6 +1161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applePrefab: {fileID: 5917462586567746781, guid: deb8b610155e1604184e937e94972269,
     type: 3}
+  player: {fileID: 1266796811}
 --- !u!4 &1149113529
 Transform:
   m_ObjectHideFlags: 0

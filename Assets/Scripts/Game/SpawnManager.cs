@@ -6,11 +6,12 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject applePrefab = default;
+    [SerializeField]
+    private Player player = default;
 
     // apple spawning logic variables
-    private int appleSpawnInterval = 4;
-    private float appleWaveIncrease = 20;
-    private float appleIncreaseCountdown = 0;
+    private float appleSpawnInterval = 4;
+    private float appleWaveIncrease = 0;
 
     // game over bool - stop when game is over
     private bool stopSpawning = false;
@@ -21,29 +22,37 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(SpawnAppleRoutine());
     }
 
-    void Update()
-    {
-        
-    }
-
     IEnumerator SpawnAppleRoutine()
     {
         yield return new WaitForSeconds(3);
         while (stopSpawning == false)
         {
+            // instantiate a new apple object at a random pos
             Vector3 spawnPos = new Vector3(Random.Range(-7, 7), 8, 0);
             GameObject newApple = Instantiate(applePrefab, spawnPos, Quaternion.identity);
 
-            appleIncreaseCountdown = Time.timeSinceLevelLoad;
-
-            if (appleIncreaseCountdown >= appleWaveIncrease)
+            if (appleSpawnInterval > 2)
             {
-                appleIncreaseCountdown = 0;
-                appleWaveIncrease += 20;
-                if (appleSpawnInterval > 1)
+                appleSpawnInterval -= 0.1f;
+            }
+            else if (appleSpawnInterval >= 1)
+            {
+                appleSpawnInterval -= 0.05f; // increase spawn rate slower
+            }
+            else if (appleSpawnInterval < 1)
+            {
+                if (appleWaveIncrease == 10)
                 {
-                    Debug.Log("New Spawn Rate - " + appleSpawnInterval);
-                    appleSpawnInterval -= 1;
+                    if (appleSpawnInterval > .5f)
+                    {
+                        appleSpawnInterval -= .1f;
+                        player.AddToSpeed(1.5f);
+                    }
+                    appleWaveIncrease = 0;
+                }
+                else
+                {
+                    appleWaveIncrease++;
                 }
             }
             yield return new WaitForSeconds(appleSpawnInterval);
