@@ -20,8 +20,15 @@ public class MainMenu : MonoBehaviour
 
     public void ViewHighscore()
     {
-        highscoreText.text = "Highscore: " + PlayerPrefs.GetFloat("Highscore");
-        highscoreText.gameObject.SetActive(true);
+        if (highscoreText.IsActive())
+        {
+            highscoreText.gameObject.SetActive(false);
+        }
+        else
+        {
+            highscoreText.text = "Highscore: " + PlayerPrefs.GetFloat("Highscore");
+            highscoreText.gameObject.SetActive(true);
+        }
     }
 
     public void Settings()
