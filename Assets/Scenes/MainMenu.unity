@@ -657,7 +657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &715552716
 RectTransform:
   m_ObjectHideFlags: 0
@@ -674,8 +674,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 284, y: -30.508}
-  m_SizeDelta: {x: 281.5069, y: 61.01602}
+  m_AnchoredPosition: {x: 239.6, y: -25}
+  m_SizeDelta: {x: 281.5069, y: 34.3338}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &715552717
 MonoBehaviour:
@@ -703,13 +703,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 131
-    m_Alignment: 1
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 11
-  m_Text: 'Your Highscore: '
+  m_Text: 'Highscore: '
 --- !u!222 &715552718
 CanvasRenderer:
   m_ObjectHideFlags: 0

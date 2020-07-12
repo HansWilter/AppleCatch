@@ -20,20 +20,14 @@ public class MainMenu : MonoBehaviour
 
     public void ViewHighscore()
     {
-        highscoreText.text = "Your highscore: " + PlayerPrefs.GetFloat("Highscore");
+        highscoreText.text = "Highscore: " + PlayerPrefs.GetFloat("Highscore");
         highscoreText.gameObject.SetActive(true);
     }
 
     public void Settings()
     {
         // settings scene
-        StartCoroutine(wait());
         SceneManager.LoadScene(3);
-    }
-
-    IEnumerator wait()
-    {
-        yield return new WaitForSeconds(1);
     }
 
     public void Quit()
